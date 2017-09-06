@@ -260,7 +260,7 @@ public class ChatFrame extends JFrame implements ActionListener, KeyListener {
 
 	@Override
 	public void keyTyped(KeyEvent e) {
-		if (e.getSource() == this.vnosSporocila) {
+		if (e.getSource() == this.vnosSporocila && !this.vnosSporocila.getText().equals("")) {
 			if (e.getKeyChar() == '\n') {
 				this.dodajSporocilo(this.vnosVzdevka.getText(), this.vnosSporocila.getText());
 				Prejeto sporocilo = new Prejeto();
@@ -333,7 +333,7 @@ public class ChatFrame extends JFrame implements ActionListener, KeyListener {
 
 	public void zapisiPrejetoSporocilo(Prejeto sporocilo) {
 		if (sporocilo.getGlobal()) {
-			this.prikazSporocil.append((sporocilo.getSender() + ": " + sporocilo.getText() + "    Poslano ob: " + sporocilo.getSent_at()) + "\n");
+			this.prikazSporocil.append((sporocilo.getSender() + ": " + sporocilo.getText()) + "\n");
 		} else {
 			this.prejetaSporocila.append((sporocilo.getSender() + ": " + sporocilo.getText() + "    Poslano ob: " + sporocilo.getSent_at()) + "\n");
 		
