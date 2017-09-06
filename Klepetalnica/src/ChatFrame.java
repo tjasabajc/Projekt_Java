@@ -332,7 +332,12 @@ public class ChatFrame extends JFrame implements ActionListener, KeyListener {
 	}
 
 	public void zapisiPrejetoSporocilo(Prejeto sporocilo) {
-		this.prejetaSporocila.append((sporocilo.getSender() + ": " + sporocilo.getText() + "    Poslano ob: " + sporocilo.getSent_at()) + "\n");
+		if (sporocilo.getGlobal()) {
+			this.prikazSporocil.append((sporocilo.getSender() + ": " + sporocilo.getText() + "    Poslano ob: " + sporocilo.getSent_at()) + "\n");
+		} else {
+			this.prejetaSporocila.append((sporocilo.getSender() + ": " + sporocilo.getText() + "    Poslano ob: " + sporocilo.getSent_at()) + "\n");
+		
+		}
 		
 	}
 
